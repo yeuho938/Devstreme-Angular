@@ -18,5 +18,11 @@ export class FlowerService {
   }
   getFlowerById(param: number): Observable<Flower> {
     return of(randomFlowerById(param));
-}
+  }
+  deleteFlower(param: number): Observable<boolean> {
+    return of(true);
+  }
+  saveFlower(param: Flower): Observable<boolean> {
+    return of(true);
+  }
 }

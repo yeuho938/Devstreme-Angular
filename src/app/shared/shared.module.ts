@@ -8,7 +8,7 @@ import {DxAccordionModule, DxButtonModule,
         DxDrawerModule, DxFormModule, 
         DxListModule, DxLoadIndicatorModule, 
         DxLoadPanelModule, 
-        DxMenuModule, DxPopupModule, DxScrollViewModule, 
+        DxMenuModule, DxPopoverModule, DxPopupModule, DxScrollViewModule, 
         DxToolbarModule, DxTreeViewModule
 } from "devextreme-angular";
 import {DxiItemModule} from "devextreme-angular/ui/nested";
@@ -22,7 +22,7 @@ import { ChangePasswordFormComponent,
         SideNavigationMenuComponent     
 } from './components';
 import {PopupContainerComponent} from './layouts/popup-container/popup-container.component';
-
+import { PopoverConfirmBoxComponent } from '../modules/shared/components/popover-confirm-box/popover-confirm-box.component';
 const PROVIDERS = [
   FlowerService,
   UserService,
@@ -37,7 +37,8 @@ const COMPONENTS = [
   UserPanelComponent,
   LoginFormComponent,
   SideNavigationMenuComponent,
-  PopupContainerComponent
+  PopupContainerComponent,
+  PopoverConfirmBoxComponent
 ]
 const DEVEXTREME_MODULES = [
   DxButtonModule,DxiItemModule,
@@ -46,7 +47,7 @@ const DEVEXTREME_MODULES = [
   DxListModule,DxContextMenuModule,
   DxTreeViewModule,DxFormModule,
   DxLoadIndicatorModule,DxDrawerModule,
-  DxScrollViewModule, DxPopupModule,DxLoadPanelModule
+  DxScrollViewModule, DxPopupModule,DxLoadPanelModule,DxPopoverModule
 ];
 
 @NgModule({

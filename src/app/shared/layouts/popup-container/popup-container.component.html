@@ -1,7 +1,7 @@
 <ng-template #defaultTemplate>
 </ng-template>
 
-<dx-load-panel [visible]="true" shadingColor="#ffffffcc" [showIndicator]="true" [shading]="false" [showPane]="true">
+<dx-load-panel [visible]="true" shadingColor="#ffffffcc" [showIndicator]="true" [shading]="false" [showPane]="true" (onShown)="onShown()">
 </dx-load-panel>
 
 <dx-popup #popup class="component-popup" [width]="500" [height]="500" [(visible)]="visible" [dragEnabled]="false" [(title)]="title">

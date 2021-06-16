@@ -1,62 +1,54 @@
 <dx-load-panel *ngIf="visible" [visible]="true" [showPane]="false"></dx-load-panel>
 
 <app-popup-container [(visible)]="visible" [title]="selectedFlower.id ? 'Edit Flower': 'New Flower'">
-    <div class="field row-layout">
-        <div class="field-label name">Id</div>
-        <div class="field-value name">
-            <dx-text-box class="w-100" [(value)]="editFlower.id">
-                <dx-validator>
-                    <dxi-validation-rule type="required" [message]="'This field is required'">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
+    <dx-validation-group>
+        <div class="field row-layout">
+            <div class="field-label name">Name flower</div>
+            <div class="field-value name">
+                <dx-text-box class="w-100" [(value)]="editFlower.name">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" [message]="'This field is required'">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
         </div>
-    </div>
-    <div class="field row-layout">
-        <div class="field-label name">Name flower</div>
-        <div class="field-value name">
-            <dx-text-box class="w-100" [(value)]="editFlower.name">
-                <dx-validator>
-                    <dxi-validation-rule type="required" [message]="'This field is required'">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
+        <div class="field row-layout">
+            <div class="field-label price">Price</div>
+            <div class="field-value price">
+                <dx-number-box class="w-100" min="0" format="#,##0" [step]="0" [(value)]="editFlower.price">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" [message]="'This field is required'">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-number-box>
+            </div>
         </div>
-    </div>
-    <div class="field row-layout">
-        <div class="field-label price">Price</div>
-        <div class="field-value price">
-            <dx-number-box class="w-100" min="0" format="#,##0" [step]="0" [(value)]="editFlower.price">
-                <dx-validator>
-                    <dxi-validation-rule type="required" [message]="'This field is required'">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-number-box>
+        <div class="field row-layout">
+            <div class="field-label image">Image</div>
+            <div class="field-value image5">
+                <dx-text-box class="w-100" [(value)]="editFlower.image">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" [message]="'This field is required'">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
         </div>
-    </div>
-    <div class="field row-layout">
-        <div class="field-label image">Image</div>
-        <div class="field-value image5">
-            <dx-text-box class="w-100" [(value)]="editFlower.image">
-                <dx-validator>
-                    <dxi-validation-rule type="required" [message]="'This field is required'">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
+        <div class="field row-layout">
+            <div class="field-label stock">Remaning Stock</div>
+            <div class="field-value stock">
+                <dx-text-box [(value)]="editFlower.remainingStock">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" [message]="'This field is required'">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
         </div>
-    </div>
-    <div class="field row-layout">
-        <div class="field-label stock">Remaning Stock</div>
-        <div class="field-value stock">
-            <dx-text-box [(value)]="editFlower.remainingStock">
-                <dx-validator>
-                    <dxi-validation-rule type="required" [message]="'This field is required'">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
+        <div>
+            <dx-button [focusStateEnabled]="false" [text]="'Sumbit'" type="default" (onClick)="submitForm($event)">
+            </dx-button>
         </div>
-    </div>
-    <div>
-        <button class="btn--sumbit">Sumbit</button>
-    </div>
+    </dx-validation-group>
 </app-popup-container>

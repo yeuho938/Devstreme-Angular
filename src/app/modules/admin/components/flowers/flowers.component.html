@@ -35,3 +35,7 @@
     </app-edit-flowers>
   </ng-container>
 </div>
+<app-popover-confirm-box #deleteDetailConfirmPopover
+                         [message]="'Are you sure to delete?'"
+                         (onConfirm)="deleteFlower()">
+</app-popover-confirm-box>

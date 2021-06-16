@@ -2362,7 +2362,7 @@
 .dx-button-text {
   display: inline;
   vertical-align: middle;
-  line-height: 23px;
+  line-height: 20px;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .04em;
@@ -2447,7 +2447,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 6px 16px;
+  padding: 5px 10px;
 }
 .dx-button-has-text .dx-icon {
   width: 18px;
@@ -2549,6 +2549,7 @@
 .dx-button.dx-button-default {
   border-radius: 4px;
   background-color: #ff5722;
+  margin-right: 10px;
   color: #fff;
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.24);
   box-shadow: 0 1px 3px rgba(0,0,0,.24);
@@ -2725,6 +2726,7 @@
 }
 .dx-button.dx-button-back .dx-button-text {
   display: none;
+
 }
 .dx-button-mode-text {
   background-color: transparent;
@@ -3671,7 +3673,7 @@
 }
 .dx-scrollview-content {
   position: static;
-  width: 70%;
+  width: 90%;
   display: flex;
   margin: 0 auto!important;
 }
@@ -9698,6 +9700,7 @@
 }
 .dx-popover-wrapper .dx-popup-content {
   overflow: hidden;
+  text-align: center;
 }
 .dx-device-ios .dx-popover-arrow::after {
   -webkit-transform: rotate(-45deg) translateZ(0);

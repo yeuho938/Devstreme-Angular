@@ -41,8 +41,11 @@ export class PopupContainerComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log("this._visible");
-        console.log(this._visible);
+    }
+    onShown() {
+        setTimeout(() => {
+            this._visible = false;
+        }, 3000);
     }
 
 }
