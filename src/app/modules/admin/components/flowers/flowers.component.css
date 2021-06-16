@@ -5,3 +5,7 @@
 ::ng-deep img {
   height: 100px;
 }
+::ng-deep .action-inline .far{
+  color: green;
+  font-size: 1.1rem;
+}

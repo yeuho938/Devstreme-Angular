@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Flower } from 'src/app/modules/shared/models';
+import { FlowerService } from 'src/app/modules/shared/services';
 
 @Component({
   selector: 'app-edit-flowers',
@@ -7,8 +9,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class EditFlowersComponent implements OnInit {
 
-  private _visible: boolean = true;
-
+  private _visible: boolean = false;
+  editFlower: Flower = new Flower();
+  @Input() selectedFlower: Flower = new Flower();
   //
   @Input()
   get visible(): boolean {
@@ -20,13 +23,15 @@ export class EditFlowersComponent implements OnInit {
       this.visibleChange.emit(value);
   }
 
-  //
   @Output() visibleChange = new EventEmitter();
-  constructor() {
+  constructor( public flowerService: FlowerService) {
   }
   
   ngOnInit(): void {
-    console.log('yeu');
-  console.log(this._visible);
+    if (this.selectedFlower.id) {
+      this.flowerService.getFlowerById(this.selectedFlower.id).subscribe((result) => {
+          this.editFlower = result;
+      });
+    }
   }
 }

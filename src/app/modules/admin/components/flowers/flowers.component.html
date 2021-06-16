@@ -1,12 +1,15 @@
 <div class="management-flowers">
   <dx-load-panel *ngIf="isProcessing" [visible]="true" [showPane]="false">
   </dx-load-panel>
+  <dx-button icon="plus" type="default" (onClick)="createFlower()" [text]="'New Flower'">
+  </dx-button>
   <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true">
     <dxo-search-panel [visible]="true" [width]="300"></dxo-search-panel>
     <dxo-paging [pageSize]="5">
     </dxo-paging>
     <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10]" [showNavigationButtons]="true">
     </dxo-pager>
+    <dxi-column dataField="id" [width]="50"></dxi-column>
     <dxi-column dataField="image" [width]="110" [allowFiltering]="false" [allowSorting]="false"
       cellTemplate="cellTemplate">
       <div *dxTemplate="let data of 'cellTemplate'">
@@ -21,17 +24,14 @@
       [caption]="'Action'">
       <div *dxTemplate="let cell of 'actionsCellTemplate'">
         <div class="action-inline">
-          <i class="fas fa-pencil-alt edit-icon pointer" title="'Edit'" (click)="onFlowerDetail(cell.data)"></i>
-          <i class="far fa-trash-alt delete-icon ml-2 pointer" title="'Delete'"
-            (click)="onDeleteFlower(cell.data.id, $event)"></i>
+          <i class="far fa-edit" title="'Edit'" (click)="onFlowerDetail(cell.data)"></i>
+          <i class="far fa-trash-alt" title="Delete" (click)="onDeleteFlower(cell.data.id, $event)"></i>
         </div>
       </div>
-
-      <ng-container *ngIf="isOpenFlowerDetailPopup">
-        <app-edit-flowers [(visible)]="isOpenFlowerDetailPopup">
-        </app-edit-flowers>
-      </ng-container>
     </dxi-column>
-
   </dx-data-grid>
+  <ng-container *ngIf="isOpenFlowerDetailPopup">
+    <app-edit-flowers [(visible)]="isOpenFlowerDetailPopup" [selectedFlower]="dataFlower">
+    </app-edit-flowers>
+  </ng-container>
 </div>

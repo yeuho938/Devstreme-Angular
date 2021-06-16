@@ -33,8 +33,13 @@ export class FlowersComponent implements OnInit {
     this.isProcessing = true;
     this.isOpenFlowerDetailPopup = true;
     this.dataFlower = param;
+    console.log(this.isOpenFlowerDetailPopup)
   }
   onDeleteBooking(id: number, e) {
 
+  }
+  createFlower(){
+    this.dataFlower = new Flower();
+    this.isOpenFlowerDetailPopup = true;
   }
 }

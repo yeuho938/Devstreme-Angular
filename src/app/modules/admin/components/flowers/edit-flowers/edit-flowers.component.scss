@@ -1,0 +1,15 @@
+.field.row-layout{
+    margin: 20px 0;
+}
+.btn--sumbit{
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: orangered;
+    color:white;
+    margin: 0 auto;
+    &:hover{
+        transition: 0.8s all;
+        background-color: red;
+    }
+}

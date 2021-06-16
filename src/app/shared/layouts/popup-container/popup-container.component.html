@@ -4,7 +4,7 @@
 <dx-load-panel [visible]="true" shadingColor="#ffffffcc" [showIndicator]="true" [shading]="false" [showPane]="true">
 </dx-load-panel>
 
-<dx-popup #popup class="component-popup" [width]="300" [height]="500" [(visible)]="visible" [dragEnabled]="false">
+<dx-popup #popup class="component-popup" [width]="500" [height]="500" [(visible)]="visible" [dragEnabled]="false" [(title)]="title">
 	<div class="popup-container">
 		<div class="popup-content-header" *ngIf="headerTemplate">
 			<ng-container [ngTemplateOutlet]="headerTemplate ? headerTemplate: defaultTemplate"></ng-container>

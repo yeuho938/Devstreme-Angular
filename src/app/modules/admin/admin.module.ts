@@ -10,7 +10,8 @@ import { DxDataGridModule, DxTemplateModule,
          DxPopupModule, DxFormModule, 
          DxTextBoxModule, DxNumberBoxModule, 
          DxDateBoxModule, DxValidatorModule, 
-         DxValidationGroupModule
+         DxValidationGroupModule,
+         DxButtonModule
 } from 'devextreme-angular';
 const COMPONENTS = [
   DashboardComponent,
@@ -25,7 +26,7 @@ const DEVEXTREME_MODULES = [
   DxTextBoxModule,DxFormModule,
   DxNumberBoxModule,DxDateBoxModule,
   DxValidatorModule,DxValidationGroupModule, 
-  DxPopupModule
+  DxPopupModule,DxButtonModule
 ];
 
 const routes: Routes = [
@@ -42,10 +43,6 @@ const routes: Routes = [
     path: 'admin/flower',
     component: FlowersComponent,
   },
-  // {
-  //   path: 'admin/flower',
-  //   component: EditFlowersComponent,
-  // },
   {
     path: 'admin/order',
     component: OrdersComponent,
