@@ -42,10 +42,10 @@ const routes: Routes = [
     path: 'admin/flower',
     component: FlowersComponent,
   },
-  {
-    path: 'flower/:id',
-    component: EditFlowersComponent,
-  },
+  // {
+  //   path: 'admin/flower',
+  //   component: EditFlowersComponent,
+  // },
   {
     path: 'admin/order',
     component: OrdersComponent,

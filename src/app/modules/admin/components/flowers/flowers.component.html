@@ -1,7 +1,6 @@
 <div class="management-flowers">
-  <dx-load-panel *ngIf="isProcessing"
-  [visible]="true" [showPane]="false">
-</dx-load-panel>
+  <dx-load-panel *ngIf="isProcessing" [visible]="true" [showPane]="false">
+  </dx-load-panel>
   <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true">
     <dxo-search-panel [visible]="true" [width]="300"></dxo-search-panel>
     <dxo-paging [pageSize]="5">
@@ -22,7 +21,7 @@
       [caption]="'Action'">
       <div *dxTemplate="let cell of 'actionsCellTemplate'">
         <div class="action-inline">
-          <i class="fas fa-pencil-alt edit-icon pointer" title="'Edit'" (click)="onFlowerDetail()"></i>
+          <i class="fas fa-pencil-alt edit-icon pointer" title="'Edit'" (click)="onFlowerDetail(cell.data)"></i>
           <i class="far fa-trash-alt delete-icon ml-2 pointer" title="'Delete'"
             (click)="onDeleteFlower(cell.data.id, $event)"></i>
         </div>
