@@ -4,7 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { ChartComponent } from './components/chart/chart.component';
 import { SharedModule } from '../../shared/shared.module';
 import {OrderDetailComponent, OrdersComponent} from "../shared/components";
-import {DashboardComponent, EditFlowersComponent, FlowersComponent, NavigationComponent} from "./components";
+import {DashboardComponent, EditFlowersComponent, FlowersComponent} from "./components";
 import { DxDataGridModule, DxTemplateModule, 
          DxSelectBoxModule, DxChartModule, 
          DxPopupModule, DxFormModule, 
@@ -17,8 +17,7 @@ const COMPONENTS = [
   DashboardComponent,
   FlowersComponent,
   EditFlowersComponent,
-  EditFlowersComponent,
-  NavigationComponent
+  EditFlowersComponent
 ];
 const DEVEXTREME_MODULES = [
   DxTemplateModule,DxDataGridModule,
