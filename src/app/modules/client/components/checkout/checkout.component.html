@@ -1,0 +1,69 @@
+<div class="box-checkout-page">
+    <div class="checkout-page">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/homepage">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/cart">Cart </a></li>
+            <li class="breadcrumb-item"><a routerLink="/checkout">Checkout page</a></li>
+        </ul>
+        <h5 class="checkout-page-title">
+            Checkout page
+        </h5>
+        <form class="checkout-form">
+            <div class="info-user">
+                <h6><a class="numerical-order"> 1 </a> Fill in your information</h6>
+                <div class="dx-fieldset">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Full Name</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="Smith" [showClearButton]="true" placeholder="Enter full name">
+                            </dx-text-box>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Phone</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="0354467062" [showClearButton]="true" placeholder="Enter phone number">
+                            </dx-text-box>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Address</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="101b le huu trac" [showClearButton]="true" placeholder="Enter address">
+                            </dx-text-box>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-product">
+                <h6><a class="numerical-order"> 2 </a> Product Review</h6>
+                <dx-data-grid id="gridCartContainer" [dataSource]="cartData" [showBorders]="true">
+                    <dxi-column dataField="image" [width]="150" [allowFiltering]="false" [allowSorting]="false"
+                      cellTemplate="cellTemplate">
+                      <div *dxTemplate="let image of 'cellTemplate'">
+                        <img [src]="image.value" width="130" height="100" />
+                      </div>
+                    </dxi-column>
+                    <dxi-column dataField="name" [width]="100"></dxi-column>
+                    <dxi-column dataField="price" [width]="100"></dxi-column>
+                    <dxi-column dataField="quantity" [width]="150">
+                    </dxi-column>
+                    <dxi-column [width]="150" cellTemplate="actionsCellTemplate" [caption]="'Delete'">
+                      <div *dxTemplate="let cell of 'actionsCellTemplate'">
+                        <button class="btn-delete">
+                          <i class="far fa-trash-alt delete-icon ml-2 cursor-pointer" id="icon-delete" title="'Delete'">
+                          </i>
+                        </button>
+                      </div>
+                    </dxi-column>
+                  </dx-data-grid>
+                  <div class="total-order">
+                        <h6 class="total-price">Total : <a>100000 đ</a></h6>
+                  </div>
+                  <div class="payment">
+                        <button class="btn-payment"> Payment</button>
+                  </div>
+            </div>
+        </form>
+    </div>
+</div>

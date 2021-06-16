@@ -1,0 +1,16 @@
+.list-flowers-page {
+  width: 70%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 680px) {
+  .list-flowers-page {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .list-flowers-page {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="content">
+ <div class="slider">
+   <dx-gallery #gallery
+               id="gallery"
+               [dataSource]="image_slider"
+               [height]="400"
+               [slideshowDelay]="2000"
+               [loop]="true"
+               [showNavButtons]="true"
+               [showIndicator]="false"
+   ></dx-gallery>
+ </div>
+  <div class="box-signup--form">
+    <div class="signup--form">
+      <h3 class="signup--tittle"> Sign up for the new letters</h3>
+      <p class="signup--context"> Sign up for our mailing list to get latest updates and offers</p>
+      <input type="text" class="signup--input" placeholder="Enter your email">
+      <a class="signup--bntYellow">SUBSCRIBE</a>
+    </div>
+  </div>
+  <div class="gallery-image">
+    <dx-list [dataSource]="image_gallery" >
+      <div *dxTemplate="let image of 'item'">
+        <img [src]="image" [width]="150" [height]="130" class="item-image">
+      </div>
+    </dx-list>
+  </div>
+</div>

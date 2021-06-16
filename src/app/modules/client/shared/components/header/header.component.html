@@ -1,0 +1,44 @@
+<dx-toolbar class="header-toolbar">
+  <dxi-item
+    location="before"
+    visible="true"
+    class="header-logo">
+    <a routerLink="/">
+      <img src="https://images-platform.99static.com/BLUnzq7J20kJ9_QV3W8YtUsfmRg=/106x122:969x985/500x500/top/smart/99designs-contests-attachments/82/82548/attachment_82548393" class="img-logo" alt="logo">
+    </a>
+  </dxi-item>
+  <dxi-item
+            location="before"
+            locateInMenu="auto">
+    <div *dxTemplate="let data of 'item'">
+      <dx-menu
+        [elementAttr]="{ id: 'elementId', class: 'class-name' }"
+        class="header-menu"
+        [dataSource]="itemMenu"
+        displayExpr="text"
+        [showFirstSubmenuMode]="{name: 'onHover',delay: { show: 0, hide: 500 }}"
+        orientation="horizontal"
+        submenuDirection="auto"
+        [hideSubmenuOnMouseLeave]="true"
+        >
+        <div *dxTemplate="let menu of 'item'">
+          <a [routerLink]="[menu.link]" [ngClass]="(menu.items !== undefined && menu.items.length) ? 'has-child' : ''"
+             routerLinkActive="active" class="menu-item">
+            <i *ngIf="menu.icon" [ngClass]="menu.icon ? menu.icon : ''"></i> {{menu.text}}
+          </a>
+        </div>
+      </dx-menu>
+    </div>
+  </dxi-item>
+  <dxi-item
+    location="after"
+    locateInMenu="auto">
+    <div *dxTemplate="let data of 'item'">
+      <dx-button
+        class="user-button"
+        height="100%"
+        stylingMode="text">
+      </dx-button>
+    </div>
+  </dxi-item>
+</dx-toolbar>

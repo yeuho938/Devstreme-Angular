@@ -1,0 +1,29 @@
+::ng-deep .footer-client {
+  .listItems {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+
+    .item--col-1 {
+      .fab {
+        padding: 0 15px;
+      }
+
+      .fab.fa-facebook-f {
+        padding: 0 15px 0 0;
+      }
+
+      .text .fas {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .copyright {
+    border-top: 1px solid grey;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+}

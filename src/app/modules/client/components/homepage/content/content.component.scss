@@ -1,0 +1,55 @@
+
+
+::ng-deep .box-signup--form {
+  width: 100%;
+  background-color: #e4ebea;
+
+  .signup {
+    &--form {
+      margin: 0 auto;
+      padding: 4% 0;
+      text-align: center;
+    }
+
+    &--tittle {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0px;
+    }
+
+    &--context {
+      font-size: 1.1rem;
+      color: grey;
+    }
+
+    &--input {
+      padding: 12px 0 12px 7px;
+      border: none;
+      border-radius: 6px;
+      width: 30%;
+      outline: none;
+
+      &:focus {
+        border-bottom: 2px solid hotpink;
+      }
+    }
+
+    &--bntYellow {
+      padding: 12px 13px;
+      background-color: orange;
+      color: white;
+      border-radius: 6px;
+
+      &:hover {
+        transition: 0.8s all;
+        color: white;
+        background-color: orangered;
+        cursor: pointer;
+      }
+    }
+  }
+}
+::ng-deep .item-image{
+  border-radius: 8px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}

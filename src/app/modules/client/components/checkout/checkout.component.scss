@@ -1,0 +1,63 @@
+%hoverStyle {
+    transition: 0.8s all;
+    color: white;
+    cursor: pointer;
+  }
+::ng-deep .checkout-page {
+    width: 80%;
+    margin: 0 auto;
+    &-title{
+        margin-top: 35px;
+        margin-bottom: 0;
+    }
+    .checkout-form{
+        display: flex;
+        .numerical-order{
+            background-color: orangered;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 6px;
+        }
+        .info-user{
+            width: 50%;
+        }
+        .info-product{
+            width: 50%;
+        }
+    }
+}
+::ng-deep .btn-delete{
+    border-radius: 4px;
+    padding: 10px 11px;
+    background-color: red;
+    height: 100%;
+    border: none;
+    outline: none;
+    &:hover {
+      background-color: #19c219;
+      @extend %hoverStyle;
+    }
+    #icon-delete{
+      color: white;
+    }
+  }
+  ::ng-deep .btn-payment{
+      float: right;
+      padding: 7px 12px;
+      background-color: orangered;
+      color: white;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      &:hover {
+        background-color: #19c219;
+        @extend %hoverStyle;
+      }
+  }
+  ::ng-deep .total-order{
+      border-bottom: 1px solid gray;
+      .total-price{
+          margin: 30px 0!important;
+      }
+  }

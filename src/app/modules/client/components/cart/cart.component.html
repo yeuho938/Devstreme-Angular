@@ -1,0 +1,45 @@
+<div class="box-cart">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/homepage">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/cart">Cart </a></li>
+  </ul>
+  <h1 class="cart-title"> Your shopping bag</h1>
+  <div class="cart-table">
+    <dx-data-grid id="gridCartContainer" [dataSource]="cartData" [showBorders]="true">
+      <dxi-column dataField="image" [width]="150" [allowFiltering]="false" [allowSorting]="false"
+        cellTemplate="cellTemplate">
+        <div *dxTemplate="let image of 'cellTemplate'">
+          <img [src]="image.value" width="150" height="130" />
+        </div>
+      </dxi-column>
+      <dxi-column dataField="name" [width]="100"></dxi-column>
+      <dxi-column dataField="price" [width]="100"></dxi-column>
+      <dxi-column [caption]="'Quantity'" [width]="150" cellTemplate="cellQuantity">
+        <div *dxTemplate="let cell of 'cellQuantity'" class="quantity-flower">
+          <button class="btn-changeQuantity">+</button>
+          <p>{{cell.data.quantity}}</p>
+          <button class="btn-changeQuantity">-</button>
+        </div>
+      </dxi-column>
+      <dxi-column [width]="150" cellTemplate="actionsCellTemplate" [caption]="'Delete'">
+        <div *dxTemplate="let cell of 'actionsCellTemplate'">
+          <button class="btn-delete">
+            <i class="far fa-trash-alt delete-icon ml-2 cursor-pointer" id="icon-delete" title="'Delete'">
+            </i>
+          </button>
+        </div>
+      </dxi-column>
+    </dx-data-grid>
+    <div class="table--totalPrice">
+      <p><strong>Total price: 100.000 đ </strong></p>
+    </div>
+    <div class="table--shopping-checkout">
+      <button type="submit" class="btn back-shopping" routerLink="/home">
+        Back shopping
+      </button>
+      <button type="submit" class="btn checkout" routerLink="/checkout">
+        Checkout
+      </button>
+    </div>
+  </div>
+</div>

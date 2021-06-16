@@ -1,0 +1,7 @@
+::ng-deep #gridContainer {
+  height: 100%;
+}
+
+::ng-deep img {
+  height: 100px;
+}
