@@ -8,6 +8,7 @@
 ::ng-deep .action-inline .far{
   color: green;
   font-size: 1.1rem;
+  margin: 0 10px;
 }
 
 ::ng-deep .text-center.mb-3{

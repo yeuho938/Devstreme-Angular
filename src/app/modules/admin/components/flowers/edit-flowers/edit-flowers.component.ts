@@ -26,6 +26,7 @@ export class EditFlowersComponent implements OnInit {
   }
 
   @Output() visibleChange = new EventEmitter();
+
   constructor(public flowerService: FlowerService) {
   }
 
@@ -38,7 +39,6 @@ export class EditFlowersComponent implements OnInit {
   }
   submitForm(param: any) {
     if (!param.validationGroup.validate().isValid) {
-      this._visible = true;
       return false;
     } else {
       this.flowerService.saveFlower(this.editFlower).subscribe((flower) => {
@@ -50,6 +50,7 @@ export class EditFlowersComponent implements OnInit {
         this.onSuccess.emit(this.editFlower);
       }, (error) => {
       });
+      this._visible = false;
     }
   }
 }

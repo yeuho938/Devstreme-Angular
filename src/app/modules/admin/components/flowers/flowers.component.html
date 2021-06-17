@@ -5,9 +5,9 @@
   </dx-button>
   <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true">
     <dxo-search-panel [visible]="true" [width]="300"></dxo-search-panel>
-    <dxo-paging [pageSize]="5">
+    <dxo-paging [pageSize]="4">
     </dxo-paging>
-    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10]" [showNavigationButtons]="true">
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[4, 5, 8]" [showNavigationButtons]="true">
     </dxo-pager>
     <dxi-column dataField="id" [width]="50"></dxi-column>
     <dxi-column dataField="image" [width]="110" [allowFiltering]="false" [allowSorting]="false"
@@ -16,11 +16,11 @@
         <img [src]="data.value" />
       </div>
     </dxi-column>
-    <dxi-column dataField="name" [width]="100"></dxi-column>
-    <dxi-column dataField="description"></dxi-column>
-    <dxi-column dataField="price" [width]="100"></dxi-column>
-    <dxi-column dataField="remainingStock" [width]="100"></dxi-column>
-    <dxi-column [width]="100" [fixed]="true" alignment="center" cellTemplate="actionsCellTemplate" fixedPosition="right"
+    <dxi-column dataField="name" [width]="150"></dxi-column>
+    <dxi-column dataField="description" [width]="550"></dxi-column>
+    <dxi-column dataField="price" [width]="130"></dxi-column>
+    <dxi-column dataField="remainingStock" [width]="150"></dxi-column>
+    <dxi-column [width]="130" [fixed]="true" alignment="center" cellTemplate="actionsCellTemplate" fixedPosition="right"
       [caption]="'Action'">
       <div *dxTemplate="let cell of 'actionsCellTemplate'">
         <div class="action-inline">

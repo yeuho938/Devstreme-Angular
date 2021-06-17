@@ -5,3 +5,4 @@ export * from './cart/cart.component';
 export * from './checkout/checkout.component';
 export * from './homepage/homepage.component';
 export * from './homepage/content/content.component';
+export * from './orders/orders-client.component'

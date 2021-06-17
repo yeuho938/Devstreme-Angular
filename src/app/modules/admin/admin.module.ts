@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import { ChartComponent } from './components/chart/chart.component';
 import { SharedModule } from '../../shared/shared.module';
-import {OrderDetailComponent, OrdersComponent} from "../shared/components";
-import {DashboardComponent, EditFlowersComponent, FlowersComponent} from "./components";
+import {OrderDetailModule, OrdersModule} from "../shared/components";
+import {DashboardComponent, EditFlowersComponent, FlowersComponent,OrdersAdminComponent} from "./components";
 import { DxDataGridModule, DxTemplateModule, 
          DxSelectBoxModule, DxChartModule, 
          DxPopupModule, DxFormModule, 
@@ -17,7 +17,8 @@ const COMPONENTS = [
   DashboardComponent,
   FlowersComponent,
   EditFlowersComponent,
-  EditFlowersComponent
+  EditFlowersComponent,
+  OrdersAdminComponent
 ];
 const DEVEXTREME_MODULES = [
   DxTemplateModule,DxDataGridModule,
@@ -44,12 +45,8 @@ const routes: Routes = [
   },
   {
     path: 'admin/order',
-    component: OrdersComponent,
+    component: OrdersAdminComponent,
   },
-  {
-    path: 'order/:id',
-    component: OrderDetailComponent
-  }
 ];
 
 @NgModule({
@@ -59,6 +56,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    OrdersModule,
+    OrderDetailModule,
     RouterModule.forRoot(routes),
     SharedModule,
    ...DEVEXTREME_MODULES

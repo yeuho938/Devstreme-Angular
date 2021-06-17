@@ -37,7 +37,6 @@ export class FlowersComponent implements OnInit {
     this.isProcessing = true;
     this.isOpenFlowerDetailPopup = true;
     this.dataFlower = param;
-    console.log(this.isOpenFlowerDetailPopup)
   }
   onDeleteFlower(id: any, e: MouseEvent) {
     this.selectedId = id;
