@@ -28,43 +28,6 @@ const routes: Routes = [
     component: ChangePasswordFormComponent,
     canActivate: [ AuthGuardService ]
   },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'flower',
-    component: FlowersComponent,
-  },
-  {
-    path: 'flower/:id',
-    component: EditFlowersComponent,
-  },
-{
-    path: '**',
-    redirectTo: 'home'
-  },
-  {
-    path: 'homepage',
-    component: HomepageComponent,
-  },
-  {
-    path: 'list-flower',
-    component: ListFlowersComponent,
-  },
-  {
-    path: 'flower/:id',
-    component: FlowerDetailComponent,
-  },
-  {
-    path: 'order',
-    component: OrdersComponent,
-  },
-  {
-    path: 'order/:id',
-    component: OrderDetailComponent
-  }
 ];
 
 @NgModule({

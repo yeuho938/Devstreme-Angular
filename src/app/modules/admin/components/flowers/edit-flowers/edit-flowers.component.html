@@ -1,6 +1,6 @@
 <dx-load-panel *ngIf="visible" [visible]="true" [showPane]="false"></dx-load-panel>
 
-<app-popup-container [(visible)]="visible" [title]="selectedFlower.id ? 'Edit Flower': 'New Flower'">
+<app-popup-container [(visible)]="visible" [title]="selectedFlower.id ? 'Edit Flower': 'New Flower'" [width]="500">
     <dx-validation-group>
         <div class="field row-layout">
             <div class="field-label name">Name flower</div>

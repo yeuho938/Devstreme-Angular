@@ -1,8 +1,8 @@
 <dx-load-panel *ngIf="visible" [visible]="true" [showPane]="false"></dx-load-panel>
 
-<app-popup-container [(visible)]="visible" [title]="'Detail of the Order'">
+<app-popup-container [(visible)]="visible" [title]="'Detail of the Order'" [width]="700">
     <div class="info-client">
-        <p><a>1.</a> Information of customer</p>
+        <p class="table-title"><a>1.</a> Information of customer</p>
         <table class="table">
             <tr class="tr-table">
                 <th class="th-table">Full name</th>
@@ -19,7 +19,7 @@
         </table>
     </div>
     <div class="info-product">
-        <p><a>2.</a> Information of product</p>
+        <p class="table-title"><a>2.</a> Information of product</p>
         <table class="table">
             <tr class="tr-table">
                 <th class="th-table">Image</th>
@@ -28,7 +28,7 @@
                 <th class="th-table">Quantity</th>
             </tr>
             <tr class="tr-table">
-                <td class="td-table"><img src="{{detailOrder.flowerImage}}" width="100" height="100"/> </td>
+                <td class="td-table"><img src="{{detailOrder.flowerImage}}" width="130" height="100"/> </td>
                 <td class="td-table">{{detailOrder.flowerName}}</td>
                 <td class="td-table">{{detailOrder.flowerPrice}}</td>
                 <td class="td-table">{{detailOrder.flowerQuantity}}</td>
@@ -36,6 +36,6 @@
         </table>
     </div>
     <div class="total-price">
-         <p>{{detailOrder.totalPrice}}</p>
+         <p><a class="total-price">Total price: </a>{{detailOrder.totalPrice| currency: 'VND':true:'1.0'}}</p>
     </div>
 </app-popup-container>

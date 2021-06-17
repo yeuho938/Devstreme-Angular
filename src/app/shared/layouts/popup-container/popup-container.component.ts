@@ -1,9 +1,9 @@
 import {
-    Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild
+    Component, EventEmitter,
+    Input, OnInit, Output,
+    TemplateRef, ViewChild
 } from '@angular/core';
 import { DxPopupComponent, DxScrollViewComponent } from 'devextreme-angular';
-
-
 @Component({
     selector: 'app-popup-container',
     templateUrl: './popup-container.component.html',
@@ -14,12 +14,19 @@ export class PopupContainerComponent implements OnInit {
     @ViewChild('scrollView', { static: false }) scrollView: DxScrollViewComponent;
     @Input() footerTemplate: TemplateRef<any>;
     @Input() headerTemplate: TemplateRef<any>;
-
+    private _width: number;
+    @Input() 
+     get width(): number{
+         return this._width;
+     }
+     set width(value: number){
+         this._width = value;
+     }
     private _title: string;
     @Output() titleChange = new EventEmitter();
     private _visible: boolean = false;
     @Output() visibleChange = new EventEmitter();
-
+           
     @Input()
     get visible(): boolean {
         return this._visible;
@@ -42,10 +49,4 @@ export class PopupContainerComponent implements OnInit {
 
     ngOnInit() {
     }
-    onShown() {
-        setTimeout(() => {
-            this._visible = false;
-        }, 3000);
-    }
-
 }

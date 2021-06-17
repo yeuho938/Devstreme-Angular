@@ -8564,11 +8564,14 @@
   white-space: nowrap;
 }
 .dx-toolbar-label > div {
+  font-family: Florence, cursive;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 -5px;
   padding: 0 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .dx-toolbar-center {
   margin: 0 auto;
