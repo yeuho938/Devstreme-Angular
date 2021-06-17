@@ -12,13 +12,13 @@
       <dxi-column dataField="userPhone" [caption]="'Phone'"></dxi-column>
       <dxi-column dataField="userAddress" [width]="250" [caption]="'Address'"></dxi-column>
       <dxi-column dataField="userEmail" [width]="250" [caption]="' Email'"></dxi-column>
-      <dxi-column dataField="cartTotalPrice" [width]="150" [caption]="'Total price'"></dxi-column>
+      <dxi-column dataField="totalPrice" [width]="150" [caption]="'Total price'"></dxi-column>
       <dxi-column [width]="100" [fixed]="true" alignment="center" cellTemplate="actionsCellTemplate" fixedPosition="right"
         [caption]="'Action'">
         <div *dxTemplate="let cell of 'actionsCellTemplate'">
           <div class="action-inline">
-            <i class="far fa-eye" title="'Detail'" (click)="onOrderDetail(cell.data)" ></i>
-            <i class="far fa-trash-alt" title="Delete" (click)="onDeleteOrder(cell.data.id, $event)"></i>
+            <i class="fas fa-eye" title="'Detail'" (click)="onOrderDetail(cell.data)" ></i>
+            <i class="fas fa-trash-alt" title="Delete" (click)="onDeleteOrder(cell.data.id, $event)"></i>
           </div>
         </div>
       </dxi-column>

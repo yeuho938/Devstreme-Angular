@@ -17,7 +17,7 @@ export function randomOrders(count: number): Order[] {
             flowerPrice: faker.random.number(),
             flowerDescription: faker.random.words(10),
             flowerQuantity: faker.random.number(200),
-            cartTotalPrice: faker.random.number(),
+            totalPrice: faker.random.number(),
         });
     });
 }
@@ -36,7 +36,7 @@ export function randomOrderById(param: number): Order {
         flowerPrice: faker.random.number(),
         flowerDescription: faker.random.words(10),
         flowerQuantity: faker.random.number(200),
-        cartTotalPrice: faker.random.number(),
+        totalPrice: faker.random.number(),
     });
 }
 

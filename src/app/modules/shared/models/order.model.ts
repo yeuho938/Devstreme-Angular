@@ -12,7 +12,7 @@ export class Order{
   flowerPrice: string;
   flowerDescription: string;
   flowerQuantity: number;
-  cartTotalPrice: number;
+  totalPrice: number;
   public constructor(init?: Partial<Order>) {
     Object.assign(this, init);
   }

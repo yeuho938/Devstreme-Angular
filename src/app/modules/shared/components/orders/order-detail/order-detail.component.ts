@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {Component, EventEmitter, Input, NgModule, OnInit, Output} from '@angular/core';
+import { DxDataGridModule } from 'devextreme-angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { Order } from '../../../models';
 import { OrderService } from '../../../services';
@@ -40,7 +41,7 @@ export class OrderDetailComponent implements OnInit {
 }
 @NgModule({
   imports: [
-    CommonModule,SharedModule
+    CommonModule,SharedModule,DxDataGridModule
   ],
   declarations: [OrderDetailComponent],
   exports: [OrderDetailComponent]

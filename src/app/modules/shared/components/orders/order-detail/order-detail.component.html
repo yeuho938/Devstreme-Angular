@@ -1,5 +1,41 @@
 <dx-load-panel *ngIf="visible" [visible]="true" [showPane]="false"></dx-load-panel>
 
 <app-popup-container [(visible)]="visible" [title]="'Detail of the Order'">
-    <h1>Hello</h1>
+    <div class="info-client">
+        <p><a>1.</a> Information of customer</p>
+        <table class="table">
+            <tr class="tr-table">
+                <th class="th-table">Full name</th>
+                <th class="th-table">Address</th>
+                <th class="th-table">Phone</th>
+                <th class="th-table">Email</th>
+            </tr>
+            <tr class="tr-table">
+                <td class="td-table">{{detailOrder.userFullname}}</td>
+                <td class="td-table">{{detailOrder.userAddress}}</td>
+                <td class="td-table">{{detailOrder.userPhone}}</td>
+                <td class="td-table">{{detailOrder.userEmail}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="info-product">
+        <p><a>2.</a> Information of product</p>
+        <table class="table">
+            <tr class="tr-table">
+                <th class="th-table">Image</th>
+                <th class="th-table">Name</th>
+                <th class="th-table">Price</th>
+                <th class="th-table">Quantity</th>
+            </tr>
+            <tr class="tr-table">
+                <td class="td-table"><img src="{{detailOrder.flowerImage}}" width="100" height="100"/> </td>
+                <td class="td-table">{{detailOrder.flowerName}}</td>
+                <td class="td-table">{{detailOrder.flowerPrice}}</td>
+                <td class="td-table">{{detailOrder.flowerQuantity}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="total-price">
+         <p>{{detailOrder.totalPrice}}</p>
+    </div>
 </app-popup-container>
