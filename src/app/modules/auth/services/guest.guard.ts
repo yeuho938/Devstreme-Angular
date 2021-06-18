@@ -1,7 +1,6 @@
 ﻿// import {Injectable} from '@angular/core';
 // import {Router, CanActivate} from '@angular/router';
-
-// import {AuthenticationService} from '@app/modules/auth/services/authentication.service';
+// import { AuthenticationService } from './authentication.service';
 
 // @Injectable()
 // export class GuestGuard implements CanActivate {

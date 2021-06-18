@@ -1,25 +1,49 @@
-﻿import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
-
+﻿import {Injectable} from '@angular/core';
+import {
+  Router, CanActivate, CanActivateChild, CanLoad,
+  ActivatedRouteSnapshot, RouterStateSnapshot, Route
+} from '@angular/router';
+import { AuthenticationService } from './authentication.service';
 const defaultPath = '/';
 const defaultUser = {
   email: 'sandra@example.com',
   avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png'
 };
-
 @Injectable()
-export class AuthGuard {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   private _user = defaultUser;
   get loggedIn(): boolean {
     return !!this._user;
   }
-
   private _lastAuthenticatedPath: string = defaultPath;
   set lastAuthenticatedPath(value: string) {
     this._lastAuthenticatedPath = value;
   }
+  constructor(private router: Router, private authService: AuthenticationService) {
+  }
+  
+  private isLoggedIn(): boolean {
+    if (this.authService.isLoggedIn()) {
+      return true;
+    }
+    //
+    //this.authService.removeCurrentUser(false);
+    //this.apiService.navigateToLogin(true);
+    //
+    return false;
+  }
 
-  constructor(private router: Router) { }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.isLoggedIn();
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.isLoggedIn();
+  }
+
+  canLoad(route: Route): boolean {
+    return this.isLoggedIn();
+  }
 
   async logIn(email: string, password: string) {
 

@@ -1,17 +1,18 @@
-@import "src/styles/scss/variables";
+//@import "../../../../themes/generated/variables.base.scss";
+$base-text-color: rgba(0, 0, 0, 0.87);
+.login-form {
+  .link {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
 
-.login-header {
-  text-align: center;
-  margin-bottom: 20px;
-
-  h1 {
-    font-size: 1.45rem;
-    font-weight: 300;
+    a {
+      text-decoration: none;
+    }
   }
 
-  img {
-    max-width: 80px;
-    height: auto;
-    margin-bottom: 10px;
+  ::ng-deep .form-text {
+    margin: 10px 0;
+    color: rgba($base-text-color, alpha($base-text-color) * 0.7);
   }
 }

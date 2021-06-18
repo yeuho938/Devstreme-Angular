@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
-
-import {AuthenticationService} from '@app/modules/auth/services';
-import {VALIDATION_REGEX} from '@app/shared/constants';
-import {LoginModel} from '@app/modules/auth/models';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import notify from 'devextreme/ui/notify';
+import { AuthGuard } from '../../services';
 
 @Component({
   selector: 'app-login-form',
@@ -10,39 +9,25 @@ import {LoginModel} from '@app/modules/auth/models';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent {
-  userName = '';
-  password = '';
-  isSubmitting: boolean = false;
+  loading = false;
+  formData: any = {};
 
-  constructor(private authService: AuthenticationService) {
+  constructor(private authService: AuthGuard, private router: Router) { }
+
+  async onSubmit(e) {
+    e.preventDefault();
+    const { email, password } = this.formData;
+    this.loading = true;
+
+    const result = await this.authService.logIn(email, password);
+    if (!result.isOk) {
+      this.loading = false;
+      notify(result.message, 'error', 2000);
+    }
   }
 
-  userNameValidator = (params) => {
-    const value = params.value;
-    if (VALIDATION_REGEX.email.test(value)) {
-      return true;
-    }
-    if (VALIDATION_REGEX.phone.test(value)) {
-      return true;
-    }
-    return false;
-  };
-
-  onLoginClick(args) {
-    if (!args.validationGroup.validate().isValid) {
-      return;
-    }
-
-    const param = new LoginModel({username: this.userName, password: this.password});
-    this.isSubmitting = true;
-    this.authService.login(param).subscribe((data) => {
-      this.isSubmitting = false;
-      //
-      this.authService.setCurrentUser(data);
-      //
-      this.authService.redirectToHome('/');
-    }, () => {
-      this.isSubmitting = false;
-    });
+  onCreateAccountClick = () => {
+    this.router.navigate(['/create-account']);
   }
 }
+

@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-
-//
-import {ThemeModule} from '@app/theme';
-import {GuestGuard} from '@app/modules/auth/services';
-import {AuthComponent} from '@app/modules/auth/components/auth.component';
-import {LoginFormComponent} from '@app/modules/auth/components/login-form/login-form.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AuthComponent } from './components/auth.component';
+import { AuthenticationService } from './services/authentication.service';
+import { DxButtonModule, DxFormModule } from 'devextreme-angular';
+import { CommonModule } from '@angular/common';
+import { DxiItemModule } from "devextreme-angular/ui/nested";
 
 const COMPONENTS = [
   AuthComponent, LoginFormComponent
@@ -14,16 +15,23 @@ const COMPONENTS = [
 
 @NgModule({
   imports: [
-    ThemeModule,
+    CommonModule,
+    SharedModule,
+    DxButtonModule,
+    DxiItemModule,
+    DxFormModule,
     RouterModule.forChild([
       {
         path: 'login',
         component: LoginFormComponent,
-        canActivate: [GuestGuard]
+        canActivate: [AuthenticationService]
       }
     ])
   ],
   declarations: [
+    ...COMPONENTS
+  ],
+  exports: [
     ...COMPONENTS
   ]
 })

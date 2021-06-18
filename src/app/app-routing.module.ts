@@ -1,39 +1,32 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormComponent, ChangePasswordFormComponent } from './shared/components';
-import { AuthGuardService } from './shared/services';
-import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
-import {DashboardComponent, EditFlowersComponent, FlowersComponent} from "./modules/admin/components";
-import {OrderDetailComponent, OrdersComponent} from "./modules/shared/components";
-import {FlowerDetailComponent, HomepageComponent, ListFlowersComponent} from "./modules/client/components";
-
+import {NgModule} from '@angular/core';
+import {ExtraOptions, RouterModule, Routes} from '@angular/router';
+import { AuthenticationService } from './modules/auth/services/authentication.service';
+import { LoginFormComponent } from './modules/auth/components/login-form/login-form.component';
 const routes: Routes = [
-  {
-    path: 'login-form',
-    component: LoginFormComponent,
-    canActivate: [ AuthGuardService ]
+    {path: '', redirectTo: 'admin/dashboard', pathMatch: 'full'},
+    {
+        path: 'admin/dashboard',
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+        canActivate: [AuthenticationService]
+    },
+    {
+      path: 'homepage',
+      loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule),
+      canActivate: [AuthenticationService]
   },
-  {
-    path: 'reset-password',
-    component: ResetPasswordFormComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
-    path: 'create-account',
-    component: CreateAccountFormComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
-    path: 'change-password/:recoveryCode',
-    component: ChangePasswordFormComponent,
-    canActivate: [ AuthGuardService ]
-  },
+    {
+        path: 'login',
+        component: LoginFormComponent
+        // loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
+    },
 ];
 
+const config: ExtraOptions = {
+    useHash: false
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule],
-  providers: [AuthGuardService],
-  exports: [RouterModule],
-  declarations: [ ]
+    imports: [RouterModule.forRoot(routes, config)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

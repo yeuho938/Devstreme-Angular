@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {AdminModule} from "./modules/admin/admin.module";
 import { ClientModule } from './modules/client/client.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     AdminModule,
     ClientModule,
-    SharedModule
+    SharedModule,
+    AuthModule
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent]
